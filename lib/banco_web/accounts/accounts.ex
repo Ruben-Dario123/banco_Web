@@ -20,13 +20,15 @@ defmodule BancoWeb.Accounts do
         {:error, :unauthorized}
 
       true ->
-        Pbkdf2.no_user_verify()
+        # CAMBIO 1: Usar Bcrypt aquí
+        Bcrypt.no_user_verify()
         {:error, :not_found}
     end
   end
 
   defp verify_password(stored_hash, password) do
-    Pbkdf2.verify_pass(password, stored_hash)
+    # CAMBIO 2: Usar Bcrypt aquí
+    Bcrypt.verify_pass(password, stored_hash)
   end
 
   def get_user_by_session_token(token) do
