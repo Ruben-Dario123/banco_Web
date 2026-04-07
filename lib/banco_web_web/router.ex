@@ -18,8 +18,8 @@ defmodule BancoWebWeb.Router do
   scope "/", BancoWebWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
-    get "/login", SessionController, :new
+    get "/", SessionController, :new
+
     post "/sessions", SessionController, :create
     delete "/sessions", SessionController, :delete
     get "/dashboard", DashboardController, :index
