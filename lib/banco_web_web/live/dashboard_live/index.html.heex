@@ -1,0 +1,48 @@
+<Layouts.app flash={@flash}>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">
+      Bienvenido, {@user.email}
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Mis Cuentas</h2>
+          <p>Ver y gestionar tus cuentas bancarias</p>
+          <div class="card-actions justify-end mt-4">
+            <button class="btn btn-primary">Ver Cuentas</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Transferencias</h2>
+          <p>Realiza transferencias entre cuentas</p>
+          <div class="card-actions justify-end mt-4">
+            <button class="btn btn-primary">Nueva Transferencia</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Historial</h2>
+          <p>Consulta tus movimientos</p>
+          <div class="card-actions justify-end mt-4">
+            <button class="btn btn-primary">Ver Historial</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <form action="/sessions" method="delete">
+        <input type="hidden" name="_csrf_token" value={get_csrf_token()} />
+        <button type="submit" class="btn btn-error">
+          Cerrar Sesión
+        </button>
+      </form>
+    </div>
+  </div>
+</Layouts.app>
